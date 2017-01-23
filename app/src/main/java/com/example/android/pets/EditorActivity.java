@@ -15,7 +15,6 @@
  */
 package com.example.android.pets;
 
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Bundle;
@@ -153,9 +152,9 @@ public class EditorActivity extends AppCompatActivity {
         Uri mNewUri = getContentResolver().insert(PetEntry.CONTENT_URI, values);
 
         if(mNewUri == null) {
-            Toast.makeText(this, "Error with saving pet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.editor_insert_pet_failed), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Pet saved with row id: " + ContentUris.parseId(mNewUri), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.editor_insert_pet_successful), Toast.LENGTH_SHORT).show();
         }
     }
 }
